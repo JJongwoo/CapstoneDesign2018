@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="base" template="/WEB-INF/templates/layout.jsp">
+		<put-attribute name="title" value="helloGrandma" />
+		<put-attribute name="menu" value="/WEB-INF/templates/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
+	</definition>
+
+	<definition name="home" extends="base">
+		<put-attribute name="title" value="helloGrandma" />
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+
+	<definition name="users" extends="base">
+		<put-attribute name="title" value="helloGrandma's users" />
+		<put-attribute name="body" value="/WEB-INF/views/users.jsp" />
+	</definition>
+
+	<definition name="admin" extends="base">
+		<put-attribute name="title" value="Administrator page" />
+		<put-attribute name="body" value="/WEB-INF/views/admin.jsp" />
+	</definition>
+
+	<definition name="activity" extends="base">
+		<put-attribute name="title" value="Activity page" />
+		<put-attribute name="body" value="/WEB-INF/views/activity.jsp" />
+	</definition>
+
+	<definition name="userManager" extends="base">
+		<put-attribute name="title" value="User Managing page" />
+		<put-attribute name="body" value="/WEB-INF/views/userManager.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
+	</definition>
+
+	<definition name="login" template="/WEB-INF/templates/nomenulayout.jsp">
+		<put-attribute name="title" value="Login page" />
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
+	</definition>
+	
+	<definition name="empty" template="/WEB-INF/templates/empty.jsp">
+	</definition>
+	
+	<definition name="viewEmergency" extends="base">
+		<put-attribute name="title" value="상황 조회"/>
+		<put-attribute name="body" value="/WEB-INF/views/viewEmergency.jsp"/>
+	</definition>
+
+</tiles-definitions>
