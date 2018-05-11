@@ -3,6 +3,8 @@ package kr.ac.hansung.cse.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -36,7 +38,7 @@ public class SensorDataDao {
 	}
 	
 	public List<Status> getStatus(int i) {
-		
+
 		String sqlStatement = "select * from sensors where date ='2018-05-08' order by time desc limit " + i;
 		
 		
