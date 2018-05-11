@@ -34,7 +34,7 @@ public class StatusController {
 
 		sensorDataService.saveData(info.get("dir1Value").toString(), info.get("dir2Value").toString(),
 				info.get("id").toString(), info.get("sona1Value").toString(), info.get("sona2Value").toString(),
-				info.get("buttonValue").toString());
+				info.get("buttonValue").toString(), info.get("shock1Value").toString());
 
 		return "empty";
 

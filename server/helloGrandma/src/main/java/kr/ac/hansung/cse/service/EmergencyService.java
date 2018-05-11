@@ -23,11 +23,17 @@ public class EmergencyService {
 
 		return emergencyDao.viewEmergency(id);
 	}
-	public int getBathCount(String id) {
-		return emergencyDao.getBathCount(id);
-	}
-	public List<Emergency> getEmergency(int count) {
 
-		return emergencyDao.getEmergency(count);
+	public int getEmergencyByStatus(String status) {
+		
+		return emergencyDao.getEmergencyByStatus(status);
+		
 	}
+
+	public List<Emergency> getEmergency(int i) {
+		
+		return emergencyDao.getEmergency(i);
+	}
+
+	
 }

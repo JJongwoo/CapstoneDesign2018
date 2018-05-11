@@ -3,8 +3,6 @@ package kr.ac.hansung.cse.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -27,19 +25,19 @@ public class SensorDataDao {
 		 jdbcTemplate = new JdbcTemplate(dataSource); 
 	}
 
-	public void saveData(String dir1, String dir2, String date, String time, String id, String sona1, String sona2, String btn, String location) {
+	public void saveData(String pir1, String pir2, String datetime, String id, String sona1, String sona2, String btn, String location, String shock) {
 
-		String sqlStatement = "insert into sensors (sensor_id, date, time, pir_living, pir_bath, sona_living, sona_bath, sos, location)" 
+		String sqlStatement = "insert into sensors (sensor_id, datetime, pir_living, pir_bath, sona_living, sona_bath, sos, location, shock)" 
 												+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-		System.out.println(id + " " + date + " " + time + " " + dir1 + " " + dir2 + " " + sona1 + " " + sona2 + " " + btn + " " + location);
+		System.out.println(id + " " + datetime +  " " + pir1 + " " + pir2 + " " + sona1 + " " + sona2 + " " + btn + " " + location + " " + shock);
 		
-		boolean a = (jdbcTemplate.update(sqlStatement, new Object[] { id, date, time, dir1, dir2, sona1, sona2, btn, location}) == 1);
+		boolean a = (jdbcTemplate.update(sqlStatement, new Object[] { id, datetime, pir1, pir2, sona1, sona2, btn, location, shock}) == 1);
 	}
 	
 	public List<Status> getStatus(int i) {
-
-		String sqlStatement = "select * from sensors where date ='2018-05-08' order by time desc limit " + i;
+		
+		String sqlStatement = "select * from sensors order by datetime desc limit " + i;
 		
 		
 		return jdbcTemplate.query(sqlStatement, new RowMapper<Status>(){
@@ -52,9 +50,9 @@ public class SensorDataDao {
 				  status.setSona_living(rs.getString("sona_living"));
 				  status.setSona_bath(rs.getString("sona_bath"));
 				  status.setSos(rs.getString("sos"));
-				  status.setTime(rs.getString("time"));
-				  status.setDate(rs.getString("date"));
+				  status.setDatetime(rs.getString("datetime"));
 				  status.setLocation(rs.getString("location"));
+				  status.setShock(rs.getString("shock"));
 				  
 				  return status;
 			}// query sql record->object

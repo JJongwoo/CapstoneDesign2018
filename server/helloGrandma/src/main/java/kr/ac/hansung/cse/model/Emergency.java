@@ -10,8 +10,7 @@ import lombok.ToString;
 public class Emergency {
 
 	String emergency_id;
-	String time;
-	String date;
+	String datetime;
 	int count_toilet;
 	int count_slip;
 	int sos;

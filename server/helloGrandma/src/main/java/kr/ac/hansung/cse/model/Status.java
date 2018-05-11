@@ -15,8 +15,8 @@ public class Status {
 	String sona_living;
 	String sona_bath;
 	String sos;
-	String time;
-	String date;
+	String datetime;
 	String location;
+	String shock;
 
 }
